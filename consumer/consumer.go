@@ -33,8 +33,8 @@ func InitConsumer() {
 		panic(err)
 	}
 
-	topics := []string{os.Getenv("kafkaTopic")}
-	c.SubscribeTopics(topics, nil)
+	topic := []string{os.Getenv("kafkaTopic")}
+	c.SubscribeTopics(topic, nil)
 
 	fmt.Println("Kafka Consumer has been started")
 

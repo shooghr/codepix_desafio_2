@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shooghr/imersao-fullstack-fullcycle/codepix-go/consumer"
-	"github.com/shooghr/imersao-fullstack-fullcycle/codepix-go/producer"
+	consumer "github.com/shooghr/codepix_desafio_2/consumer"
+	producer "github.com/shooghr/codepix_desafio_2/producer"
 	"github.com/spf13/cobra"
 
 	homedir "github.com/mitchellh/go-homedir"
@@ -32,15 +32,19 @@ var cfgFile string
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "codepix_desafio_2",
-	Short: "Chellange two initializer",
+	Short: "Chellange two initializ",
+	Run: func(cmd *cobra.Command, args []string) {
+		go consumer.InitConsumer()
+		producer.InitProducer()
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		go consumer.InitConsumer()
-		producer.InitProducer()
+		fmt.Println(err)
+		os.Exit(1)
 	}
 }
 

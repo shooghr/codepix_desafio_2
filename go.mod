@@ -1,4 +1,4 @@
-module github.com/shooghr/imersao-fullstack-fullcycle/codepix-go
+module github.com/shooghr/codepix_desafio_2
 
 go 1.15
 

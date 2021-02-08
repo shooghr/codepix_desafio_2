@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "codepix_desafio_2/cmd"
+import "github.com/shooghr/codepix_desafio_2/cmd"
 
 func main() {
 	cmd.Execute()
